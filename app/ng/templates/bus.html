@@ -1,0 +1,22 @@
+<h1>Recent Bus</h1>
+<form role='form'>
+  <div class='form-group'>
+      <label for="text"></label> Nom
+      <input ng-model="nom" class='form-control'> <br>
+      <label for="text"></label> Numero de ligne
+      <input ng-model="ligne" class='form-control'><br>
+      <label for="text"></label> Départ
+      <input ng-model="depart" class='form-control'><br>
+      <label for="text"></label> Points
+      <input ng-model="points" class='form-control' placeholder="Donner un tableau de points exp: [Station dior, Parcelles mame Abdou, Rond point case, ]"> <br>
+      <label for="text"></label>
+      <input ng-model="terminus" class='form-control'><br>
+        <button ng-click='addBus()' class='btn btn-default'>Ajouter Bus</button>
+  </div>
+</form>
+<ul class='list-group'>
+  <li ng-repeat="busx in bus | orderBy:'-date'" class='list-group-item'>
+    <strong>@{{ busx }}</strong>
+    <span>{{ busx }}</span>
+  </li>
+</ul>

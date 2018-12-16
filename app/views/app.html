@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+  </head>
+  <body ng-controller='ApplicationCtrl'>
+    <nav class='navbar navbar-default'>
+      <div class='container'>
+        <ul class='nav navbar-nav'>
+          <li><a class='bus' href='/#/'>Bus</a></li>
+          <li><a class='register' href='/#/register'>Register</a></li>
+          <li><a class='login' href='/#/login'>Login</a></li>
+        </ul>
+        <p ng-if='SessionHero' class='navbar-text navbar-right'>
+          Bienvenue  {{SessionHero.username}} notre Hero !
+        </p>
+      </div>
+    </nav>
+    <div class='container' ng-view></div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-route.min.js'></script>
+    <script src='/ng/js/module.js'></script>
+    <script src='/ng/js/application.ctrl.js'></script>
+    <script src='/ng/js/routes.js'></script>
+    <script src='/ng/js/bus.ctrl.js'></script>
+    <script src='/ng/js/bus.svc.js'></script>
+    <script src='/ng/js/hero.svc.js'></script>
+    <script src='/ng/js/login.ctrl.js'></script>
+    <script src='/ng/js/register.ctrl.js'></script>
+
+  </body>
+</html>

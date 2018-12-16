@@ -1,0 +1,36 @@
+version: '2'
+services:
+  mysql:
+    container_name: mysql
+    image: 'mysql:5.7'
+    env_file: ./.env
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASS: ${DB_PASS}
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+  redis:
+    container_name: redis
+    image: 'redis:3.2'
+    env_file: ./.env
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASS}
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./data/redis:/var/lib/redis
+  web:
+    container_name: web
+    build: .
+    command: sh -c 'npm install; npm start'
+    env_file: ./.env
+    volumes:
+      - ./nodejs:/usr/src/app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mysql
+      - redis
